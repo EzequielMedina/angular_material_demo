@@ -1,0 +1,228 @@
+<div class="demo-container">
+  <mat-card class="demo-card">
+    <mat-card-header>
+      <mat-card-title>🎨 Componentes Angular Material - Demo</mat-card-title>
+      <mat-card-subtitle>Formulario reactivo con componentes personalizados</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="demoForm" (ngSubmit)="onSubmit()" class="demo-form">
+        
+        <!-- Sección: Información Personal -->
+        <div class="form-section">
+          <div class="section-header">
+            <h3>👤 Información Personal</h3>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="showInputInfo()"
+              matTooltip="Ver información del componente Input"
+              class="info-button"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+          
+          <div class="form-row">
+            <app-material-input
+              label="Nombre"
+              placeholder="Ingrese su nombre"
+              formControlName="firstName"
+              [required]="true"
+              [errorMessage]="getErrorMessage('firstName')"
+            ></app-material-input>
+
+            <app-material-input
+              label="Apellido"
+              placeholder="Ingrese su apellido"
+              formControlName="lastName"
+              [required]="true"
+              [errorMessage]="getErrorMessage('lastName')"
+            ></app-material-input>
+          </div>
+
+          <div class="form-row">
+            <app-material-input
+              label="Email"
+              placeholder="ejemplo@email.com"
+              type="email"
+              formControlName="email"
+              [required]="true"
+              [errorMessage]="getErrorMessage('email')"
+            ></app-material-input>
+
+            <app-material-input
+              label="Teléfono"
+              placeholder="+34 123 456 789"
+              formControlName="phone"
+              [required]="true"
+              [errorMessage]="getErrorMessage('phone')"
+            ></app-material-input>
+          </div>
+        </div>
+
+        <!-- Sección: Fecha y País -->
+        <div class="form-section">
+          <div class="section-header">
+            <h3>📅 Información Adicional</h3>
+            <div class="info-buttons">
+              <button 
+                mat-icon-button 
+                color="primary" 
+                (click)="showDatepickerInfo()"
+                matTooltip="Ver información del componente Datepicker"
+                class="info-button"
+              >
+                <mat-icon>info</mat-icon>
+              </button>
+              <button 
+                mat-icon-button 
+                color="primary" 
+                (click)="showSelectInfo()"
+                matTooltip="Ver información del componente Select"
+                class="info-button"
+              >
+                <mat-icon>info</mat-icon>
+              </button>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <app-material-datepicker
+              label="Fecha de Nacimiento"
+              placeholder="Seleccione fecha"
+              formControlName="birthDate"
+              [required]="true"
+              [errorMessage]="getErrorMessage('birthDate')"
+            ></app-material-datepicker>
+
+            <app-material-select
+              label="País"
+              placeholder="Seleccione su país"
+              [options]="countryOptions"
+              formControlName="country"
+              [required]="true"
+              [errorMessage]="getErrorMessage('country')"
+            ></app-material-select>
+          </div>
+        </div>
+
+        <!-- Sección: Intereses -->
+        <div class="form-section">
+          <div class="section-header">
+            <h3>🎯 Intereses</h3>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="showSelectInfo()"
+              matTooltip="Ver información del componente Select Múltiple"
+              class="info-button"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+          
+          <app-material-select
+            label="Tecnologías de Interés"
+            placeholder="Seleccione sus intereses"
+            [options]="interestOptions"
+            formControlName="interests"
+            [multiple]="true"
+            hint="Puede seleccionar múltiples opciones"
+          ></app-material-select>
+        </div>
+
+        <!-- Sección: Descripción -->
+        <div class="form-section">
+          <div class="section-header">
+            <h3>📝 Descripción</h3>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="showTextareaInfo()"
+              matTooltip="Ver información del componente Textarea"
+              class="info-button"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+          
+          <app-material-textarea
+            label="Descripción Personal"
+            placeholder="Cuéntenos sobre usted..."
+            formControlName="description"
+            [required]="true"
+            [rows]="4"
+            [maxLength]="500"
+            [errorMessage]="getErrorMessage('description')"
+            hint="Máximo 500 caracteres"
+          ></app-material-textarea>
+        </div>
+
+        <!-- Sección: Términos -->
+        <div class="form-section">
+          <div class="section-header">
+            <h3>✅ Términos y Condiciones</h3>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="showCheckboxInfo()"
+              matTooltip="Ver información del componente Checkbox"
+              class="info-button"
+            >
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+          
+          <app-material-checkbox
+            label="Acepto los términos y condiciones"
+            formControlName="acceptTerms"
+            [required]="true"
+            [errorMessage]="getErrorMessage('acceptTerms')"
+          ></app-material-checkbox>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="form-actions">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit" 
+            [disabled]="demoForm.invalid"
+            class="submit-button"
+          >
+            📤 Enviar Formulario
+          </button>
+          
+          <button 
+            mat-button 
+            type="button" 
+            (click)="onReset()"
+            class="reset-button"
+          >
+            🗑️ Limpiar Formulario
+          </button>
+        </div>
+
+        <!-- Información del Formulario -->
+        <div class="form-info">
+          <div class="info-header">
+            <p><strong>Estado del formulario:</strong> {{ demoForm.valid ? '✅ Válido' : '❌ Inválido' }}</p>
+            <button 
+              mat-icon-button 
+              color="primary" 
+              (click)="showControlValueAccessorInfo()"
+              matTooltip="Ver información técnica sobre ControlValueAccessor"
+              class="info-button"
+            >
+              <mat-icon>code</mat-icon>
+            </button>
+          </div>
+          <p><strong>Valores:</strong></p>
+          <pre>{{ demoForm.value | json }}</pre>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

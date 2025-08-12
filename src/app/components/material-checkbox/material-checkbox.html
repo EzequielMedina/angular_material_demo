@@ -1,0 +1,13 @@
+<mat-checkbox
+  [checked]="value"
+  [required]="required"
+  [disabled]="disabled"
+  [indeterminate]="indeterminate"
+  [color]="color"
+  [labelPosition]="labelPosition"
+  (change)="onCheckboxChange($event)"
+  (blur)="onBlur()"
+  class="material-checkbox-field"
+>
+  {{ label }}
+</mat-checkbox>

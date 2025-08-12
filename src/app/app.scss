@@ -1,0 +1,213 @@
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+}
+
+.app-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-tabs {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  ::ng-deep .mat-mdc-tab-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    .mat-mdc-tab-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      font-size: 16px;
+      
+      &.mat-mdc-tab-label-active {
+        color: white;
+        font-weight: 600;
+      }
+    }
+    
+    .mat-mdc-tab-header-pagination-chevron {
+      border-color: white;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-body-content {
+    padding: 0;
+  }
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.users-section {
+  margin-bottom: 40px;
+}
+
+.users-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+
+  mat-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    margin: -16px -16px 0 -16px;
+  }
+
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  mat-card-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+  }
+}
+
+.users-table {
+  width: 100%;
+  margin-top: 20px;
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    padding: 16px 8px;
+  }
+
+  td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  tr:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+.info-section {
+  margin-bottom: 40px;
+}
+
+.info-card {
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: white;
+
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    .info-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      color: #6c757d;
+    }
+
+    h3 {
+      margin: 0;
+      color: #495057;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      color: #6c757d;
+      font-size: 1rem;
+      max-width: 400px;
+    }
+  }
+}
+
+.app-footer {
+  background: #343a40;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app-header {
+    padding: 30px 15px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .app-main {
+    padding: 20px 15px;
+  }
+
+  .users-table {
+    font-size: 0.9rem;
+
+    th, td {
+      padding: 8px 4px;
+    }
+  }
+
+  .info-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .users-table {
+    font-size: 0.8rem;
+  }
+}
