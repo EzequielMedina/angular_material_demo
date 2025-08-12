@@ -1,12 +1,8 @@
 [build]
-  command = "npm run build:ssr"
+  command = "npm run build"
   publish = "dist/user-management-app/browser"
-  functions = "netlify/functions"
-
-[functions]
-  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/ssr"
+  to = "/index.html"
   status = 200
