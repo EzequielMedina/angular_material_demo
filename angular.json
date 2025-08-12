@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/user-management-app/browser",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -73,6 +74,21 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/user-management-app/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "sourceMap": false
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
