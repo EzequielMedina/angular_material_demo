@@ -1,8 +1,12 @@
 [build]
-  command = "ng build --configuration=production"
-  publish = "dist/angular-material-demo"
+  command = "npm run build:ssr"
+  publish = "dist/user-management-app/browser"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/ssr"
   status = 200
