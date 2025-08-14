@@ -36,9 +36,7 @@
             "outputHashing": "all",
             "optimization": true,
             "extractLicenses": true,
-            "vendorChunk": true,
-            "sourceMap": false,
-            "namedChunks": false
+            "sourceMap": false
           },
           "configurations": {
             "production": {

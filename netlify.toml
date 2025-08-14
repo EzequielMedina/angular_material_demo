@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/user-management-app/browser"
+  publish = "dist/user-management-app/browser/browser"
 
 # Redirigir todas las rutas a index.html para SPA
 [[redirects]]
